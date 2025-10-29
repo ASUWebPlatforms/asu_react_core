@@ -1,5 +1,5 @@
 react-core:
-  version: 0.0.1
+  version: 2.16.1
   dependencies:
     - core/jquery
     - core/drupal
