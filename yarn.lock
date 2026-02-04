@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@asu/unity-react-core@1.4.2":
-  version "1.4.2"
-  resolved "https://npm.pkg.github.com/download/@asu/unity-react-core/1.4.2/0dc9a03378bf8f43d16c494a9b019ac9b2a4ecda#0dc9a03378bf8f43d16c494a9b019ac9b2a4ecda"
-  integrity sha512-AuI/DRSQIyxm6p1UyJiA9xg8l3vwvddz0BeuCMg5mYe7x0oqfJq1GMyrW8vye/udMTXuKAgMWiHdb1Ca7LNe5g==
+"@asu/unity-react-core@1.4.4":
+  version "1.4.4"
+  resolved "https://npm.pkg.github.com/download/@asu/unity-react-core/1.4.4/ec57d3df1eb83b28f881fb47988e4ecbb4562aff#ec57d3df1eb83b28f881fb47988e4ecbb4562aff"
+  integrity sha512-WQZIxmS9/7HIe5KyMqgAAyCzS8Kyqv0ZLaLXRO4VXKmC1FfJ4SeIiYRu3en3ziWznI2OStd15I+y56G10mBNnQ==
   dependencies:
     "@glidejs/glide" "~3.6.2"
     classnames "^2.2.6"
