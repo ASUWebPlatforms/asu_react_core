@@ -6,7 +6,7 @@ react-core:
     - core/drupalSettings
     - asu_react_integration/reactjs
   js:
-    node_modules/@asu/unity-react-core/dist/unityReactCore.umd.js: {}
+    dist/react-core.min.js: {}
 testimonial-carousel:
   version: 2.19.3
   dependencies:

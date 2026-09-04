@@ -3,6 +3,7 @@
     "@asu/unity-react-core": "1.11.4"
   },
   "scripts": {
-    "postinstall": "node patch.js"
+    "build": "node build.js",
+    "postinstall": "yarn build"
   }
 }

@@ -1,9 +1,13 @@
 (function ($, Drupal, drupalSettings) {
-
   Drupal.behaviors.card = {
     attach: function (context, settings) {
-      var componentLoaded = typeof unityReactCore !== "undefined" && typeof unityReactCore.initCard !== "undefined";
-      var cardExist = typeof settings.asu !== "undefined" && typeof settings.asu.components !== "undefined" && typeof settings.asu.components.content_section !== "undefined";
+      var componentLoaded =
+        typeof unityReactCore !== 'undefined' &&
+        typeof unityReactCore.initCard !== 'undefined';
+      var cardExist =
+        typeof settings.asu !== 'undefined' &&
+        typeof settings.asu.components !== 'undefined' &&
+        typeof settings.asu.components.content_section !== 'undefined';
 
       if (!cardExist || !componentLoaded) {
         return;
@@ -11,7 +15,7 @@
 
       for (var cardId in settings.asu.components.content_section) {
         var cardData = settings.asu.components.content_section[cardId];
-	      var cardId = cardData.cardId;
+        var cardId = cardData.cardId;
         var card = settings.asu.components.card[cardId];
 
         // BigPipe guard: prevent double-initialization.
@@ -44,7 +48,7 @@
         });
 
         delete settings.asu.components.content_section[cardId];
-	    }
-    }
+      }
+    },
   };
 })(jQuery, Drupal, drupalSettings);

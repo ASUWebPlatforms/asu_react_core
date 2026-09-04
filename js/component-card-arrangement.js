@@ -11,6 +11,7 @@
         typeof settings.asu.components.card_arrangement !== 'undefined';
 
       const COLUMNS_PROP = {
+        'one-column': '1',
         'two-columns': '2',
         'three-columns': '3',
         'four-columns': '4',

@@ -1,19 +1,26 @@
 (function ($, Drupal, drupalSettings) {
-
   Drupal.behaviors.testimonialCarousel = {
     attach: function (context, settings) {
-      var componentLoaded = typeof unityReactCore !== "undefined" && typeof unityReactCore.initTestimonialCarousel !== "undefined";
-      var testimonialExist = typeof settings.asu !== "undefined" && typeof settings.asu.components !== "undefined" && typeof settings.asu.components.testimonial_carousel !== "undefined";
+      var componentLoaded =
+        typeof unityReactCore !== 'undefined' &&
+        typeof unityReactCore.initTestimonialCarousel !== 'undefined';
+      var testimonialExist =
+        typeof settings.asu !== 'undefined' &&
+        typeof settings.asu.components !== 'undefined' &&
+        typeof settings.asu.components.testimonial_carousel !== 'undefined';
 
       if (!testimonialExist || !componentLoaded) {
         return;
       }
 
       for (var testimonialId in settings.asu.components.testimonial_carousel) {
-        var carouselData = settings.asu.components.testimonial_carousel[testimonialId];
+        var carouselData =
+          settings.asu.components.testimonial_carousel[testimonialId];
 
         // BigPipe guard: prevent double-initialization.
-        var targetEl = document.getElementById("testimonialCarouselContainer" + testimonialId);
+        var targetEl = document.getElementById(
+          'testimonialCarouselContainer' + testimonialId,
+        );
         if (!targetEl || targetEl.hasAttribute('data-react-root-initialized')) {
           delete settings.asu.components.testimonial_carousel[testimonialId];
           continue;
@@ -21,15 +28,15 @@
         targetEl.setAttribute('data-react-root-initialized', 'true');
 
         var testimonials = [];
-        carouselData.items.forEach(function(item) {
+        carouselData.items.forEach(function (item) {
           testimonials.push(settings.asu.components.testimonial[item]);
         });
 
         unityReactCore.initTestimonialCarousel({
-          targetSelector: "#testimonialCarouselContainer" + testimonialId,
+          targetSelector: '#testimonialCarouselContainer' + testimonialId,
           props: {
             testimonialItems: testimonials,
-            maxWidth: "500px",
+            maxWidth: '500px',
             hasNavButtons: true,
             hasPositionIndicators: true,
             itemStyle: {
@@ -37,11 +44,10 @@
               titleCssClass: carouselData.itemTitleCssClass,
             },
           },
-        })
+        });
 
         delete settings.asu.components.testimonial_carousel[testimonialId];
       }
-    }
+    },
   };
-
 })(jQuery, Drupal, drupalSettings);

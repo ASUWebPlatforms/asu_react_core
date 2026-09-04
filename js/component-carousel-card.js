@@ -1,9 +1,13 @@
 (function ($, Drupal, drupalSettings) {
-
   Drupal.behaviors.cardCarousel = {
     attach: function (context, settings) {
-      var componentLoaded = typeof unityReactCore !== "undefined" && typeof unityReactCore.initCardCarousel !== "undefined";
-      var cardExist = typeof settings.asu !== "undefined" && typeof settings.asu.components !== "undefined" && typeof settings.asu.components.card_carousel !== "undefined";
+      var componentLoaded =
+        typeof unityReactCore !== 'undefined' &&
+        typeof unityReactCore.initCardCarousel !== 'undefined';
+      var cardExist =
+        typeof settings.asu !== 'undefined' &&
+        typeof settings.asu.components !== 'undefined' &&
+        typeof settings.asu.components.card_carousel !== 'undefined';
 
       if (!cardExist || !componentLoaded) {
         return;
@@ -20,7 +24,7 @@
         }
 
         var cards = [];
-        carouselData.items.forEach(function(item) {
+        carouselData.items.forEach(function (item) {
           cards.push(settings.asu.components.card[item]);
         });
 
@@ -40,7 +44,6 @@
 
         delete settings.asu.components.card_carousel[cardId];
       }
-    }
+    },
   };
-
 })(jQuery, Drupal, drupalSettings);

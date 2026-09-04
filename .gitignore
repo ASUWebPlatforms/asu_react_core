@@ -1,14 +1,8 @@
-!node_modules
-node_modules/*
+# NodeJS projects
+node_modules/
 
-!node_modules/@asu
-node_modules/@asu/*
-!node_modules/@asu/unity-react-core
-node_modules/@asu/unity-react-core/*
-!node_modules/@asu/unity-react-core/dist
-node_modules/@asu/unity-react-core/dist/*
-!node_modules/@asu/unity-react-core/dist/unityReactCore.min.js
-!node_modules/@asu/unity-react-core/dist/unityReactCore.umd.js
+# Built artifact (committed so no build step is required at deploy time)
+!dist/
 
 .idea/
 .DS_Store

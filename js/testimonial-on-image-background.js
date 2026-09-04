@@ -1,23 +1,34 @@
 (function ($, Drupal, drupalSettings) {
-
   Drupal.behaviors.testimonialOnImageBackground = {
     attach: function (context, settings) {
-      var componentLoaded = typeof unityReactCore !== "undefined" && typeof unityReactCore.initTestimonial !== "undefined";
-      var testimonialBlockExist = typeof settings.asu !== "undefined" && typeof settings.asu.components !== "undefined" && typeof settings.asu.components.testimonial_on_image_background !== "undefined";
+      var componentLoaded =
+        typeof unityReactCore !== 'undefined' &&
+        typeof unityReactCore.initTestimonial !== 'undefined';
+      var testimonialBlockExist =
+        typeof settings.asu !== 'undefined' &&
+        typeof settings.asu.components !== 'undefined' &&
+        typeof settings.asu.components.testimonial_on_image_background !==
+          'undefined';
 
       if (!testimonialBlockExist || !componentLoaded) {
         return;
       }
 
-			for (var testimonialId in settings.asu.components.testimonial_on_image_background) {
-			var testimonialData = settings.asu.components.testimonial_on_image_background[testimonialId];
-				var testimonialId = testimonialData.items[0];
-				var testimonial = settings.asu.components.testimonial[testimonialId];
+      for (var testimonialId in settings.asu.components
+        .testimonial_on_image_background) {
+        var testimonialData =
+          settings.asu.components.testimonial_on_image_background[
+            testimonialId
+          ];
+        var testimonialId = testimonialData.items[0];
+        var testimonial = settings.asu.components.testimonial[testimonialId];
 
         // BigPipe guard: prevent double-initialization.
         var targetEl = document.getElementById('testimonial-' + testimonialId);
         if (!targetEl || targetEl.hasAttribute('data-react-root-initialized')) {
-          delete settings.asu.components.testimonial_on_image_background[testimonialId];
+          delete settings.asu.components.testimonial_on_image_background[
+            testimonialId
+          ];
           continue;
         }
         targetEl.setAttribute('data-react-root-initialized', 'true');
@@ -28,7 +39,7 @@
           props: {
             quote: {
               title: testimonial.quote.title,
-              content:testimonial.quote.content,
+              content: testimonial.quote.content,
               cite: {
                 name: testimonial.quote.cite.name,
                 description: testimonial.quote.cite.description,
@@ -43,8 +54,10 @@
             },
           },
         });
-				delete settings.asu.components.testimonial_on_image_background[testimonialId];
-			}
-    }
+        delete settings.asu.components.testimonial_on_image_background[
+          testimonialId
+        ];
+      }
+    },
   };
 })(jQuery, Drupal, drupalSettings);
